@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+Write a JavaScript program to compute the union of two arrays. [5 marks]
+
+Sample Data : console.log(union([1, 2, 3], [100, 2, 1, 10]));
+
+Output: [1, 2, 3, 10, 100]
+<br>
+    <script>
+        function union(arr1, arr2){
+            let out_arr = [];
+            for (let i=0; i<arr1.length; i++){
+                if(!(out_arr.includes(arr1[i]))){
+                    out_arr.push(arr1[i]);
+                }
+            }
+            for (let i=0; i<arr2.length; i++){
+                if(!(out_arr.includes(arr2[i]))){
+                    out_arr.push(arr2[i]);
+                }
+            }
+            return out_arr;
+        }
+
+        console.log(union([1, 2, 3], [100, 2, 1, 10])); // [1, 2, 3, 10, 100]
+    </script>
+
+<br><br><br>
+Write a query to find the name (first_name, last_name) of the employees who have a manager and worked in a USA based department. [2.5 marks]
+
+employees
+
+EMPLOYEE_ID
+
+FIRST_NAME
+
+LAST_NAME
+
+EMAIL
+
+PHONE_NUMBER
+
+HIRE_DATE
+
+JOB_ID
+
+SALARY
+
+COMMISSION_PCT
+
+MANAGER_ID
+
+DEPARTMENT_ID
+
+departments
+
+DEPARTMENT_ID
+
+DEPARTMENT_NAME
+
+MANAGER_ID
+
+LOCATION_ID
+
+locations
+
+location_id 
+
+street_address
+
+postal_code
+
+city
+
+state_province
+
+country_id <br>
+ Answere : SELECT first_name, last_name FROM employees  where MANAGER_ID != null and DEPARTMENT_ID in (SELECT DEPARTMENT_ID from departments where locations = 'USA');
+
+ <br><br><br>
+ Consider above schemas and Write a query to find the name (first_name, last_name), and salary of the employees who earns more than the average salary and works in any of the IT departments. [2.5 marks]
+<br>
+answere <br>
+ SELECT first_name, last_name FROM employees  WHERE SALARY > (SELECT avg(SALARY) from employees)  and DEPARTMENT_NAME = 'IT';
+ <br><br><br>
+
+ From the following tables, write a SQL query to find all salespeople and customers located in the city of London. [2.5 marks]
+
+Salesman
+
+salesman_id
+
+name
+
+city
+
+commission
+
+Customer
+
+customer_id
+
+cust_name
+
+city
+
+grade
+
+salesman_id
+<br>answere  :<br>
+select * from Salesman where city = 'London';
+select * from Customer where city = 'London';
+
+<br><br><br>
+Design schema for products' order database [5 marks]
+
+<br> Answere :: <br>
+table:
+ orders
+
+fields:
+ order_id
+ product_id
+ user_id
+ quntity
+ effective_price
+
+</body>
+</html>
